@@ -1,83 +1,34 @@
 /* ==========================================================================
-   OEA — Service Worker (PWA)
-   Stratégie volontairement prudente pour un site e-commerce :
-   - Met en cache uniquement les fichiers statiques du même domaine (HTML, CSS,
-     JS, icônes) pour permettre l'installation et un chargement plus rapide.
-   - Ne met JAMAIS en cache les appels vers Airtable/le Worker Cloudflare,
-     Stripe Checkout ou Web3Forms : ces requêtes passent toujours en direct
-     sur le réseau pour garantir des prix et un paiement toujours à jour.
+   OEA — Service Worker (désactivation d'urgence)
+
+   Ce fichier remplace temporairement le service worker précédent, qui
+   provoquait une erreur bloquante sur toutes les pages sauf l'accueil.
+
+   Son unique rôle : se désinstaller lui-même chez CHAQUE visiteur qui a déjà
+   l'ancien service worker enregistré, puis recharger la page proprement,
+   sans qu'aucune manipulation ne soit nécessaire côté navigateur.
+
+   Une version corrigée et fonctionnelle de la mise en cache pourra être
+   réintroduite plus tard, une fois testée à tête reposée.
    ========================================================================== */
 
-var CACHE_NAME = 'oea-shell-v2';
-
-var ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/boutique.html',
-  '/panier.html',
-  '/a-propos.html',
-  '/contact.html',
-  '/css/style.css',
-  '/js/main.js',
-  '/js/cart.js',
-  '/js/cart-page.js',
-  '/manifest.json',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-  '/assets/images/logo-oea-mark-dark.png'
-];
-
-self.addEventListener('install', function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function (cache) { return cache.addAll(ASSETS_TO_CACHE); })
-      .catch(function () { /* installation silencieuse même si un fichier manque */ })
-  );
+self.addEventListener('install', function () {
   self.skipWaiting();
 });
 
 self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.keys().then(function (keys) {
-      return Promise.all(
-        keys.filter(function (key) { return key !== CACHE_NAME; })
-            .map(function (key) { return caches.delete(key); })
-      );
-    })
-  );
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', function (event) {
-  var request = event.request;
-  var url = new URL(request.url);
-
-  /* Laisse passer sans interception :
-     - toute requête vers un autre domaine (Airtable/Worker, Stripe, Web3Forms, polices, images stock)
-     - toute requête non-GET (POST vers le Worker de paiement, formulaires) */
-  if (url.origin !== self.location.origin || request.method !== 'GET') {
-    return;
-  }
-
-  /* Stale-while-revalidate pour les fichiers statiques du site.
-     On reconstruit la requête avec redirect: 'follow' explicite : les requêtes
-     de navigation ont par défaut un mode de redirection restreint, et Cloudflare
-     Pages redirige en interne certaines URLs (ex. /page.html) — sans ce correctif,
-     Chrome rejette la réponse avec une erreur "redirected response... not follow". */
-  var safeRequest = new Request(request, { redirect: 'follow' });
-
-  event.respondWith(
-    caches.match(request).then(function (cached) {
-      var networkFetch = fetch(safeRequest)
-        .then(function (response) {
-          if (response && response.ok) {
-            var copy = response.clone();
-            caches.open(CACHE_NAME).then(function (cache) { cache.put(request, copy); });
-          }
-          return response;
-        })
-        .catch(function () { return cached; });
-      return cached || networkFetch;
-    })
+    self.registration.unregister()
+      .then(function () {
+        return self.clients.matchAll({ type: 'window' });
+      })
+      .then(function (clients) {
+        clients.forEach(function (client) {
+          client.navigate(client.url);
+        });
+      })
   );
 });
+
+/* Pas de gestionnaire "fetch" : toutes les requêtes passent directement au
+   réseau, sans aucune interception, le temps que la désinstallation se fasse. */
