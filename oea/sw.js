@@ -8,7 +8,7 @@
      sur le réseau pour garantir des prix et un paiement toujours à jour.
    ========================================================================== */
 
-var CACHE_NAME = 'oea-shell-v1';
+var CACHE_NAME = 'oea-shell-v2';
 
 var ASSETS_TO_CACHE = [
   '/',
@@ -59,10 +59,16 @@ self.addEventListener('fetch', function (event) {
     return;
   }
 
-  /* Stale-while-revalidate pour les fichiers statiques du site */
+  /* Stale-while-revalidate pour les fichiers statiques du site.
+     On reconstruit la requête avec redirect: 'follow' explicite : les requêtes
+     de navigation ont par défaut un mode de redirection restreint, et Cloudflare
+     Pages redirige en interne certaines URLs (ex. /page.html) — sans ce correctif,
+     Chrome rejette la réponse avec une erreur "redirected response... not follow". */
+  var safeRequest = new Request(request, { redirect: 'follow' });
+
   event.respondWith(
     caches.match(request).then(function (cached) {
-      var networkFetch = fetch(request)
+      var networkFetch = fetch(safeRequest)
         .then(function (response) {
           if (response && response.ok) {
             var copy = response.clone();
