@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — OEA</title>
-<meta name="description" content="Contactez la maison OEA pour toute question sur la collection ou votre commande.">
+<title>Boutique — OEA</title>
+<meta name="description" content="Découvrez la collection OEA : casquette, t-shirt, hoodie et claquettes en édition limitée, façonnés à la main en Polynésie.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,10 +16,10 @@
       <img src="assets/images/logo-oea-mark-dark.png" alt="OEA Tahiti" class="logo-mark-img">
     </a>
     <nav class="main-nav" id="main-nav">
-      <a href="boutique.html">Boutique</a>
+      <a href="boutique.html" aria-current="page">Boutique</a>
       <a href="personnalisation.html">Personnalisation</a>
       <a href="a-propos.html">À propos</a>
-      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <a href="personnalisation.html#devis" class="btn btn-outline-gold header-cta">Créer ma pièce →</a>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
@@ -27,52 +27,190 @@
 </header>
 
 <main>
-  <section class="section">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <span class="eyebrow">Contact</span>
-          <h2>Une question ?<br><em>Parlons-en.</em></h2>
-          <p>Pour toute question sur la collection ou un projet sur mesure, notre atelier vous répond sous 48 heures.</p>
 
-          <div class="contact-detail">
-            <div class="label">Email</div>
-            <div class="value">contact@oea-maison.com</div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">La collection</span>
+      <h1>Quatre pièces essentielles,<br><em>un art de vivre.</em></h1>
+      <p class="lead">Chaque pièce est produite en série courte et confidentielle. Choisissez la vôtre, puis personnalisez-la à votre image sur mesure.</p>
+    </div>
+  </section>
+
+  <section class="carousel-section">
+    <div class="container">
+      <div class="section-lede">
+        <span class="eyebrow" style="justify-content:center;">En image</span>
+        <h2>Portées, brodées,<br><em>pensées pour durer.</em></h2>
+      </div>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <div class="carousel-media">
+              <img src="assets/images/produit-polo-logo.jpg" alt="Polo OEA blanc, logo brodé tiaré sur la poitrine et écusson sur la manche">
+            </div>
+            <div class="carousel-caption">
+              <div class="cap-title">Le Polo</div>
+              <div class="cap-sub">Logo brodé, écusson manche</div>
+            </div>
           </div>
-          <div class="contact-detail">
-            <div class="label">Personnalisation</div>
-            <div class="value"><a href="personnalisation.html#devis">Démarrer mon projet →</a></div>
+          <div class="carousel-slide">
+            <div class="carousel-media">
+              <img src="assets/images/produit-hoodie-front.jpg" alt="Hoodie zippé OEA blanc, logo OEA Tahiti brodé sur la poitrine">
+            </div>
+            <div class="carousel-caption">
+              <div class="cap-title">Le Hoodie</div>
+              <div class="cap-sub">Vue de face</div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-media">
+              <img src="assets/images/produit-hoodie-back.jpg" alt="Dos d'un hoodie OEA blanc, large fleur de tiaré brodée">
+            </div>
+            <div class="carousel-caption">
+              <div class="cap-title">Le Hoodie</div>
+              <div class="cap-sub">Vue de dos</div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-media">
+              <img src="assets/images/produit-claquettes.jpg" alt="Claquettes OEA noires, logo fleur de tiare sur la lanière">
+            </div>
+            <div class="carousel-caption">
+              <div class="cap-title">Les Claquettes</div>
+              <div class="cap-sub">Logo brodé sur la lanière</div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-media">
+              <img src="assets/images/produit-serviette-logo.jpg" alt="Serviette de plage OEA noire, logo complet, posée sur le sable face au lagon">
+            </div>
+            <div class="carousel-caption">
+              <div class="cap-title">La Serviette</div>
+              <div class="cap-sub">Logo complet, face au lagon</div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-media">
+              <img src="assets/images/produit-boxer.jpg" alt="Boxer OEA blanc, ceinture logotée, fleur de tiare brodée">
+            </div>
+            <div class="carousel-caption">
+              <div class="cap-title">Le Boxer</div>
+              <div class="cap-sub">Bientôt dans la collection</div>
+            </div>
           </div>
         </div>
-
-        <form class="devis-form" id="contactForm">
-          <h3>Envoyer un message</h3>
-          <p>Nous vous répondons personnellement sous 48 heures.</p>
-          <div id="statusMessage" style="margin-bottom:15px; font-size:14px;"></div>
-
-          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI">
-          <input type="hidden" name="subject" value="Nouveau message — Contact OEA">
-          <input type="checkbox" name="botcheck" style="display:none">
-
-          <div class="field field-full">
-            <label for="c-nom">Nom</label>
-            <input type="text" id="c-nom" name="name" placeholder="Votre nom" required>
-          </div>
-          <div class="field field-full">
-            <label for="c-email">Email</label>
-            <input type="email" id="c-email" name="email" placeholder="vous@email.com" required>
-          </div>
-          <div class="field field-full">
-            <label for="c-message">Message</label>
-            <textarea id="c-message" name="message" placeholder="Votre message..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-gold form-submit" id="btnSubmit">Envoyer le message →</button>
-        </form>
+        <div class="carousel-controls">
+          <button type="button" class="carousel-btn" data-carousel-prev aria-label="Photo précédente">←</button>
+          <div class="carousel-dots" data-carousel-dots></div>
+          <button type="button" class="carousel-btn" data-carousel-next aria-label="Photo suivante">→</button>
+        </div>
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="product-grid">
+
+        <article class="product-card" data-name="Casquette" data-badge="Nouveau" data-price="49 €"
+          data-desc="Coton brun chiné, brodée main"
+          data-full="Une casquette en coton brun chiné, brodée main d'un monogramme ou d'un motif au choix. Visière courbée, réglage arrière en cuir. Pièce d'entrée dans l'univers OEA, pensée pour un usage quotidien.">
+          <div class="product-media">
+            <span class="product-badge">Nouveau</span>
+            <img src="https://images.unsplash.com/photo-1691256676359-20e5c6d4bc92?auto=format&fit=crop&w=800&q=80" alt="Casquette OEA en coton brun chiné" onerror="this.style.display='none'">
+          </div>
+          <div class="product-body">
+            <h3>La Casquette</h3>
+            <p class="desc">Coton brun chiné, brodée main</p>
+            <div class="product-foot">
+              <span class="product-price">49 €</span>
+              <button type="button" class="product-link" data-product-trigger>Voir le produit →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="T-Shirt" data-badge="Best-seller" data-price="79 €"
+          data-desc="Lin premium, coupe étudiée"
+          data-full="Un t-shirt en lin premium à la coupe étudiée pour une allure fluide et intemporelle. Col rond renforcé, coutures invisibles. Brodé sur demande de votre monogramme ou d'un motif polynésien discret.">
+          <div class="product-media">
+            <span class="product-badge">Best-seller</span>
+            <img src="https://images.unsplash.com/photo-1620799139652-715e4d5b232d?auto=format&fit=crop&w=800&q=80" alt="T-shirt OEA en lin premium" onerror="this.style.display='none'">
+          </div>
+          <div class="product-body">
+            <h3>Le T-Shirt</h3>
+            <p class="desc">Lin premium, coupe étudiée</p>
+            <div class="product-foot">
+              <span class="product-price">79 €</span>
+              <button type="button" class="product-link" data-product-trigger>Voir le produit →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Hoodie" data-badge="Édition" data-price="129 €"
+          data-desc="Coton molletonné, capuche brodée"
+          data-full="Un hoodie en coton molletonné épais, à la capuche brodée main. Poche kangourou, poignets côtelés. Produit en édition limitée, chaque exemplaire est numéroté."
+        >
+          <div class="product-media">
+            <span class="product-badge">Édition</span>
+            <img src="assets/images/produit-hoodie-front.jpg" alt="Hoodie OEA en coton molletonné, logo brodé">
+          </div>
+          <div class="product-body">
+            <h3>Le Hoodie</h3>
+            <p class="desc">Coton molletonné, capuche brodée</p>
+            <div class="product-foot">
+              <span class="product-price">129 €</span>
+              <button type="button" class="product-link" data-product-trigger>Voir le produit →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Claquettes" data-badge="Artisanal" data-price="99 €"
+          data-desc="Sangles en cuir cousu main"
+          data-full="Des claquettes à semelle souple et sangles en cuir cousu main, façonnées par des artisans polynésiens. Une pièce confort pensée pour prolonger l'esprit vacances au quotidien.">
+          <div class="product-media">
+            <span class="product-badge">Artisanal</span>
+            <img src="assets/images/produit-claquettes.jpg" alt="Claquettes OEA — slide noir, logo fleur de tiare brodé">
+          </div>
+          <div class="product-body">
+            <h3>Les Claquettes</h3>
+            <p class="desc">Sangles en cuir cousu main</p>
+            <div class="product-foot">
+              <span class="product-price">99 €</span>
+              <button type="button" class="product-link" data-product-trigger>Voir le produit →</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Envie d'une pièce <em>à votre image ?</em></h2>
+      <p>Ajoutez un monogramme, un motif ou une matière de votre choix à n'importe quelle pièce de la collection.</p>
+      <div class="ctas">
+        <a href="personnalisation.html#devis" class="btn btn-gold">Personnaliser ma pièce →</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<!-- Modale détail produit -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer">✕</button>
+    <span class="modal-badge" data-modal-badge></span>
+    <h3 id="modalTitle" data-modal-title></h3>
+    <span class="modal-price" data-modal-price></span>
+    <p class="modal-desc" data-modal-desc></p>
+    <div class="modal-actions">
+      <a href="personnalisation.html#devis" class="btn btn-gold" data-modal-devis>Personnaliser cette pièce →</a>
+      <button type="button" class="btn btn-outline" data-modal-close>Fermer</button>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container footer-inner">
@@ -101,44 +239,11 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 OEA — Tous droits réservés.</span>
+    <span>© <span data-year>2026</span> OEA — Tous droits réservés.</span>
     <span>Beauté &amp; héritage polynésien</span>
   </div>
 </footer>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('statusMessage');
-  const btn = document.getElementById('btnSubmit');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = "Envoi en cours...";
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-      const data = await response.json();
-      if (data.success) {
-        status.style.color = "#4ade80";
-        status.textContent = "Message envoyé avec succès !";
-        form.reset();
-      } else {
-        throw new Error();
-      }
-    } catch (err) {
-      status.style.color = "#ff6b6b";
-      status.textContent = "Erreur lors de l'envoi. Veuillez réessayer.";
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Envoyer le message →";
-    }
-  });
-</script>
 <script src="js/main.js"></script>
 </body>
 </html>
