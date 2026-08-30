@@ -772,3 +772,48 @@ p { margin: 0; line-height: 1.7; color: var(--oea-text); }
 .page-hero .eyebrow { margin-bottom: 22px; }
 .page-hero h1 { font-size: clamp(30px, 4vw, 46px); max-width: 720px; }
 .page-hero p.lead { color: var(--oea-text-muted); max-width: 560px; margin-top: 20px; font-size: 15px; }
+
+/* ------------------------- Bannière d'installation iOS ------------------------- */
+.ios-install-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: -120px;
+  z-index: 300;
+  background: var(--oea-panel);
+  border: 1px solid var(--oea-gold);
+  border-radius: 8px;
+  padding: 18px 44px 18px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: bottom 0.4s ease;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.ios-install-banner.show { bottom: 20px; }
+.ios-install-banner p { font-size: 13.5px; color: var(--oea-text); line-height: 1.6; margin: 0; }
+.ios-install-banner strong { color: var(--oea-cream); font-family: var(--font-display); font-size: 15px; }
+.ios-share-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--oea-gold-light);
+  border-radius: 4px;
+  color: var(--oea-gold-light);
+  font-size: 12px;
+  line-height: 1;
+  margin: 0 1px;
+}
+.ios-install-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--oea-text-muted);
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+}
+.ios-install-close:hover { color: var(--oea-cream); }
