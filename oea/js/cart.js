@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OEA — moteur de panier (localStorage)
+   OEA Tahiti — moteur de panier (localStorage)
    Chargé sur TOUTES les pages, avant main.js et avant tout script de page.
    Expose window.OEACart pour être utilisé par main.js et panier.html.
    ========================================================================== */
@@ -41,7 +41,7 @@
     } else {
       cart.push({
         id: item.id,
-        name: item.name || 'Produit OEA',
+        name: item.name || 'Produit OEA Tahiti',
         price: Number(item.price) || 0,
         image: item.image || '',
         quantity: qtyToAdd
