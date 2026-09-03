@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OEA — logique de la page panier.html
+   OEA Tahiti — logique de la page panier.html
    Nécessite js/cart.js chargé avant ce fichier.
    ========================================================================== */
 
