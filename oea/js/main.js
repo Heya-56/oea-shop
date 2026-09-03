@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OEA — script principal
+   OEA Tahiti — script principal
    Nécessite js/cart.js chargé AVANT ce fichier (window.OEACart).
    ========================================================================== */
 
@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var banner = document.createElement('div');
     banner.className = 'ios-install-banner';
     banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-label', "Installer l'application OEA");
+    banner.setAttribute('aria-label', "Installer l'application OEA Tahiti");
     banner.innerHTML =
       '<button type="button" class="ios-install-close" aria-label="Fermer">✕</button>' +
-      '<p><strong>Installer OEA sur votre écran d\'accueil</strong><br>' +
+      '<p><strong>Installer OEA Tahiti sur votre écran d\'accueil</strong><br>' +
       'Appuyez sur l\'icône de partage <span class="ios-share-icon" aria-hidden="true">⬆</span> en bas de Safari, ' +
       'puis choisissez « Sur l\'écran d\'accueil ».</p>';
 
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
           var priceValue = Number(fields.Prix) || 0;
           var priceParts = priceValue.toFixed(2).split('.');
           var imageUrl = (fields.Image && fields.Image[0] && fields.Image[0].url) || 'assets/images/logo-oea-mark-dark.png';
-          var name = fields.Nom || 'Produit OEA';
+          var name = fields.Nom || 'Produit OEA Tahiti';
           var nameAttr = name.replace(/"/g, '&quot;');
           var desc = fields.Description || '';
           var imageTag = '<img src="' + imageUrl + '" alt="' + nameAttr + '">';
