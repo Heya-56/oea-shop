@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OEA — Service Worker (désactivation d'urgence)
+   OEA Tahiti — Service Worker (désactivation d'urgence)
 
    Ce fichier remplace temporairement le service worker précédent, qui
    provoquait une erreur bloquante sur toutes les pages sauf l'accueil.
